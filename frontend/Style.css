@@ -16,6 +16,10 @@ body {
     word-wrap: break-word;
   }
 }
+.hero{
+  color: #000000 !important;
+  font-size: 24px;
+}
 header { 
   background: linear-gradient(135deg, #fdc96a, #f684a8); 
   color: white; 

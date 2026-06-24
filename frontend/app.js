@@ -13,7 +13,7 @@ const btnTodas = document.querySelector("#btnTodas");
 const btnActivos = document.querySelector("#btnActivos"); 
 const btnNoActivos = document.querySelector("#btnNoActivos"); 
 const btnBuscarID = document.querySelector("#btnBuscarID");
- 
+const inputBuscarID = document.querySelector("#inputBuscarID");
 
 let cursosActuales = []; 
  
@@ -123,33 +123,24 @@ nuevocurso.duracion === NaN || nuevocurso.cuposdisponibles === NaN) {
     console.error(error); 
   } 
 } 
-async function buscarCursoPorID() {
-    const id = document.querySelector("#inputBuscarID").value.trim();
+async function buscarCursoPorID(id) {
+  try {
+    const id = inputBuscarID.value.trim();
     if (id === "") {
-        mensaje.textContent = "Debe ingresar un ID para buscar.";
-        mensaje.className = "error";
-        return;
+      mensaje.textContent = "Debe ingresar un ID para buscar.";
+      mensaje.className = "error";
+      return;
     }
+    const respuesta = await fetch(`${API_URL}/${id}`);
+    const curso = await respuesta.json();
+    mostrarCursos([curso]);
+  } catch (error) {
+    mensaje.textContent = "Error al buscar el curso.";
+    mensaje.className = "error";
+    console.error(error);
+  }
 }
 
-async function eliminarCurso(id) { 
-  try { 
-    const respuesta = await fetch(`${API_URL}/${id}`, { method: "DELETE" 
-}); 
- 
-    if (!respuesta.ok) { 
-      throw new Error("Error al eliminar"); 
-    } 
- 
-    mensaje.textContent = "Curso eliminado correctamente."; 
-    mensaje.className = "ok"; 
-    cargarCursos(); 
- 
-  } catch (error) { 
-    mensaje.textContent = "Error al eliminar el curso."; 
-    mensaje.className = "error"; 
-  } 
-} 
 
 formulario.addEventListener("submit", guardarCurso); 
 btnCargar.addEventListener("click", cargarCursos); 

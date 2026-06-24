@@ -30,7 +30,7 @@ async function crearCurso(req, res) {
     const pool = await getConnection();
     const resultado = await pool.request()
       .input("nombre", sql.NVarChar(100), nombre)
-      .input("categoria", sql.NVarChar(50), categoria)
+      .input("categoria", sql.NVarChar(100), categoria)
       .input("duracion", sql.Int, Number(duracion))
       .input("cuposdisponibles", sql.Int, Number(cuposdisponibles))
       .input("activo", sql.Bit, activo === true || activo === "true")

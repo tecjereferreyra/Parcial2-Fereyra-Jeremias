@@ -6,7 +6,15 @@ body {
 .presentacion_institucional { 
   text-align: center; 
   margin: 20px 0; 
-  color: #717171; 
+  color: #000000; 
+  p{
+    font-size: 18px; 
+    line-height: 1.6; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    font-family:inherit;
+    word-wrap: break-word;
+  }
 }
 header { 
   background: linear-gradient(135deg, #fdc96a, #f684a8); 
@@ -59,6 +67,16 @@ footer{
     transform: translateY(-2px);
      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
+  a{
+    margin: 0 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    &:hover{
+        text-decoration: underline;
+    }
+  }
 }
 .panel { 
   background: white; 
@@ -110,7 +128,7 @@ button {
   border: none; 
   cursor: pointer; 
 } 
- 
+
 button:hover { 
   transform: translateY(-2px); 
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -136,7 +154,7 @@ button:hover {
   width: 100%; 
   text-align: center; 
   font-weight: bold; 
-  color: #555; 
+  color: #000000; 
 } 
  
 .galeria { 
@@ -153,7 +171,7 @@ button:hover {
   border-radius: 12px; 
   padding: 20px; 
   text-align: center; 
-  border-top: 5px solid #c9c9c9; 
+  border-top: 5px solid #757373; 
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
     transition:all 0.3s ease;
 } 
@@ -161,19 +179,17 @@ button:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.20);
  }
-.disponible { 
+.activo { 
   color: green; 
 font-weight: bold; 
 } 
-.no-disponible { 
+.inactivo { 
 color: red; 
 font-weight: bold; 
-} 
-.eliminar { 
-margin-top: 10px; 
-background-color: #b3261e; 
 } 
 @media (max-width: 768px) { 
 .acciones { flex-direction: column; } 
 .tarjeta { width: 90%; } 
+.presentacion_institucional p,h2 { font-size: 16px; }
+nav ul { gap: 10px; font-size: 15px; flex-wrap:no-wrap; }
 }

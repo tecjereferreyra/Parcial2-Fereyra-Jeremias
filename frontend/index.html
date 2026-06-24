@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Aplicación Web Cursos</title> 
+  <link rel="stylesheet" href="/frontend/Style.css"> 
+</head> 
+<body> 
+<header> 
+  <h1>Sistema de Gestión de Cursos</h1> 
+  <p>Frontend conectado a API Node.js y SQL Server</p> 
+</header> 
+ <nav>
+    <ul>
+      <li><a href="#formCursos">Registrar cursos</a></li>
+      <li><a href="#listadoCursos">Listado de cursos</a></li>
+    </ul>
+ </nav>
+ <section class="presentacion_institucional">
+  <h2>Instituto Superior Villa del Rosario</h2>
+  <p> El instituto ofrece cursos de educación superior en diversas áreas de conocimiento. A continuación, puede registrar nuevos cursos o ver el listado de cursos existentes hasta el momento.</p>
+</section>
+
+<main> 
+  <section class="panel"> 
+    <h2>Registrar cursos</h2> 
+    <form id="formCursos"> 
+      <input type="text" id="nombre" placeholder="Nombre del curso"> 
+      <input type="text" id="categoria" placeholder="Categoría"> 
+      <input type="number" id="duracion" placeholder="Duración (horas)"> 
+      <input type="number" id="cuposdisponibles" placeholder="Cupos disponibles"> 
+      <select id="activo">
+        <option value="">Seleccionar estado</option>
+        <option value="true">Activo</option>
+        <option value="false">Inactivo</option>
+      </select>
+      <button type="submit">Guardar curso</button> 
+    </form> 
+    <p id="mensaje"></p> 
+  </section> 
+ 
+  <section class="panel"> 
+    <h2>Listado de cursos</h2> 
+ 
+  <div class="acciones"> 
+      <button id="btnCargar">Recargar cursos</button>
+      <button id="btnTodas">Mostrar todos</button> 
+      <button id="btnActivos">Mostrar cursos activos</button> 
+      <button id="btnNoActivos">Mostrar cursos inactivos</button>
+      <input type="number" id="inputBuscarID" placeholder="ID del curso">
+      <button id="btnBuscarID">Buscar</button> 
+    </div> 
+ 
+    <div id="listadoCursos" class="galeria">
+    </div> 
+  </section> 
+</main> 
+ <footer>
+    <p>2026 | Todo los derechos reservados.</p>
+ </footer>
+<script src="/frontend/app.js"></script> 
+</body> 
+</html>
+           

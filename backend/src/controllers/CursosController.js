@@ -45,39 +45,43 @@ async function crearCurso(req, res) {
     res.status(500).json({ mensaje: "Error al guardar curso", error: error.message });
   }
 }
-async function eliminarCurso(req, res) {
-  try {
-    const { id } = req.params;
-    const pool = await getConnection();
-    const resultado = await pool.request()
-      .input("id", sql.Int, Number(id))
-      .query("DELETE FROM Cursos WHERE Id = @id");
-    if (resultado.rowsAffected[0] === 0) {
-      return res.status(404).json({ mensaje: "Curso no encontrado" });
-    }
-    res.json({ mensaje: "Curso eliminado correctamente" });
-  } catch (error) {
-    res.status(500).json({ mensaje: "Error al eliminar curso", error: error.message });
-  }
-}
+async function eliminarCurso(id) { 
+  try { 
+    const respuesta = await fetch(`${API_URL}/${id}`, { method: "DELETE" 
+}); 
+ 
+    if (!respuesta.ok) { 
+      throw new Error("Error al eliminar"); 
+    } 
+ 
+    mensaje.textContent = "Curso eliminado correctamente."; 
+    mensaje.className = "ok"; 
+    cargarCursos(); 
+ 
+  } catch (error) { 
+    mensaje.textContent = "Error al eliminar el curso."; 
+    mensaje.className = "error"; 
+  } 
+} 
 
 async function obtenerCursosporId(req, res) {
-  try {
-    const { id } = req.params;
-    const pool = await getConnection();
-    const resultado = await pool.request()
-      .input("id", sql.Int, Number(id))
-        .query(`
-        SELECT Id AS id, Nombre AS nombre, Categoria AS categoria, Duracion AS duracion, CuposDisponibles AS cuposdisponibles, Activo AS activo
-        FROM Cursos
-        WHERE Id = @id
-      `);
-    if (resultado.recordset.length === 0) {
-        return res.status(404).json({ mensaje: "Curso no encontrado" });
+    try {
+        const { id } = req.params;
+        const pool = await getConnection();
+        const resultado = await pool.request()
+            .input("id", sql.Int, id)
+            .query(`
+                SELECT Id AS id, Nombre AS nombre, Categoria AS categoria, Duracion AS duracion, CuposDisponibles AS cuposdisponibles, Activo AS activo
+                FROM Cursos
+                WHERE Id = @id
+            `);
+        if (resultado.recordset.length === 0) {
+            return res.status(404).json({ mensaje: "Curso no encontrado" });
+        }
+        res.json(resultado.recordset[0]);
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al obtener curso por ID", error: error.message });
     }
-    res.json(resultado.recordset[0]);
-  } catch (error) {
-    res.status(500).json({ mensaje: "Error al obtener curso por ID", error: error.message });
-  }
+}
     
-module.exports = { probarConexion, obtenerCursos, crearCurso, eliminarCurso, obtenerCursosporId }};
+module.exports = { probarConexion, obtenerCursos, crearCurso, eliminarCurso, obtenerCursosporId };

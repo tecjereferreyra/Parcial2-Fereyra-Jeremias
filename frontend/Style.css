@@ -1,0 +1,179 @@
+body { 
+  margin: 0; 
+  font-family: Arial, sans-serif; 
+  background-color: #fffaf8; 
+} 
+.presentacion_institucional { 
+  text-align: center; 
+  margin: 20px 0; 
+  color: #717171; 
+}
+header { 
+  background: linear-gradient(135deg, #fdc96a, #f684a8); 
+  color: white; 
+  text-align: center; 
+  padding: 40px; 
+  transition: all 0.3s ease;
+  &:hover{
+    transform: translateY(-2px);
+     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+} 
+nav{
+    padding: 15px;
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+        li{
+            a{
+                text-decoration: none;
+                color: #c1c0c0;
+                font-weight: bold;
+                outline: none;
+                padding: 5px 15px;
+                border-radius: 20px;
+               transition: all 0.3s ease;
+                &:hover{
+                    background: linear-gradient(135deg, #fdc96a, #f684a8);
+                    color: #fff;
+                }
+            }
+        }
+    } 
+}
+main { 
+  width: 90%; 
+  max-width: 1000px; 
+  margin: 30px auto; 
+} 
+footer{
+    text-align: center; 
+    padding: 20px; 
+  background: linear-gradient(135deg, #fdc96a, #f684a8);  
+    color: white;
+     transition: all 0.3s ease;
+  &:hover{
+    transform: translateY(-2px);
+     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+}
+.panel { 
+  background: white; 
+  padding: 25px; 
+  border-radius: 15px; 
+  margin: 50px 30px; 
+  box-shadow: 0 0 15px rgba(0,0,0,0.20);
+transition: all 0.3s ease;
+  &:hover{
+    box-shadow: 0 0 25px rgba(0,0,0,0.30);
+    transform: translateY(-5px);
+  }
+} 
+ 
+h2 { 
+  color:#c1c0c0; 
+  text-align: center;
+  transition: all 0.3s ease;
+  &:hover{
+    transform: translateY(-2px);
+    
+  }
+} 
+ 
+form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px;
+} 
+ 
+input, select, button { 
+  padding: 12px; 
+  border-radius: 8px; 
+  font-size: 16px; 
+  border: 1px solid #ccc;
+font-family: inherit;
+color: #333;
+transition: all 0.3s ease;
+
+&:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+} 
+ 
+button { 
+  background: linear-gradient(135deg, #fdc96a, #f684a8); 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+} 
+ 
+button:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+} 
+ 
+#mensaje { 
+  text-align: center; 
+  font-weight: bold; 
+} 
+ 
+.ok { color: green; } 
+.error { color: red; } 
+ 
+.acciones { 
+  display: flex; 
+  justify-content: center; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+  margin-bottom: 20px; 
+} 
+ 
+.sin-resultados { 
+  width: 100%; 
+  text-align: center; 
+  font-weight: bold; 
+  color: #555; 
+} 
+ 
+.galeria { 
+  display: flex; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  margin-top: 20px; 
+} 
+ 
+.tarjeta { 
+  width: 230px; 
+  background: #f8fbff; 
+  border-radius: 12px; 
+  padding: 20px; 
+  text-align: center; 
+  border-top: 5px solid #c9c9c9; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition:all 0.3s ease;
+} 
+ .tarjeta:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.20);
+ }
+.disponible { 
+  color: green; 
+font-weight: bold; 
+} 
+.no-disponible { 
+color: red; 
+font-weight: bold; 
+} 
+.eliminar { 
+margin-top: 10px; 
+background-color: #b3261e; 
+} 
+@media (max-width: 768px) { 
+.acciones { flex-direction: column; } 
+.tarjeta { width: 90%; } 
+}
